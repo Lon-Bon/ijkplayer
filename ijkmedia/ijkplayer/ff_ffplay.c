@@ -2756,6 +2756,9 @@ static int audio_open(FFPlayer *opaque, int64_t wanted_channel_layout, int wante
     wanted_spec.samples = FFMAX(SDL_AUDIO_MIN_BUFFER_SIZE, 2 << av_log2(wanted_spec.freq / SDL_AoutGetAudioPerSecondCallBacks(ffp->aout)));
     wanted_spec.callback = sdl_audio_callback;
     wanted_spec.userdata = opaque;
+    //-------zgm add--------//
+    wanted_spec.stream_type = opaque->stream_type;
+
     while (SDL_AoutOpenAudio(ffp->aout, &wanted_spec, &spec) < 0) {
         /* avoid infinity loop on exit. --by bbcallen */
         if (is->abort_request)
@@ -4794,6 +4797,17 @@ void ffp_set_playback_volume(FFPlayer *ffp, float volume)
         return;
     ffp->pf_playback_volume = volume;
     ffp->pf_playback_volume_changed = 1;
+}
+
+//---zgm add--------//
+void ffp_set_stream_type(FFPlayer *ffp,int streamType)
+{
+    if (!ffp)
+    {
+        return;
+    }
+
+    ffp->stream_type=streamType;
 }
 
 int ffp_get_video_rotate_degrees(FFPlayer *ffp)

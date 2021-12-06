@@ -251,6 +251,8 @@ SDL_Android_AudioTrack *SDL_Android_AudioTrack_new_from_sdl_spec(JNIEnv *env, co
     atrack_spec.channel_config = find_android_channel(sdl_spec->channels);
     atrack_spec.audio_format = find_android_format(sdl_spec->format);
     atrack_spec.buffer_size_in_bytes = sdl_spec->size;
+    //--------zgm add----------//
+    atrack_spec.stream_type = sdl_spec->stream_type;
 
     return SDL_Android_AudioTrack_new_from_spec(env, &atrack_spec);
 }

@@ -88,6 +88,8 @@ typedef struct SDL_AudioSpec
     Uint32 size;                /**< Audio buffer size in bytes (calculated) */
     SDL_AudioCallback callback;
     void *userdata;
+    //-------zgm add---------//
+    int stream_type;
 } SDL_AudioSpec;
 
 void SDL_CalculateAudioSpec(SDL_AudioSpec * spec);

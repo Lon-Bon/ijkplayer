@@ -498,6 +498,23 @@ LABEL_RETURN:
     return;
 }
 
+/**zgm add ijkMediaPlayer_setAudioStreamType**/
+void
+ijkMediaPlayer_setAudioStreamType(JNIEnv *env, jobject thiz, jint streamType)
+{
+    IjkMediaPlayer *mp = jni_get_media_player(env, thiz);
+    int ret = 0;
+    JNI_CHECK_GOTO(mp, env, NULL, "mpjni: setStreamSelected: null mp", LABEL_RETURN);
+
+    ijkmp_set_stream_type(mp, streamType);
+   
+LABEL_RETURN:
+    ijkmp_dec_ref_p(&mp);
+    return;
+}
+
+
+
 static void
 IjkMediaPlayer_setVolume(JNIEnv *env, jobject thiz, jfloat leftVolume, jfloat rightVolume)
 {
@@ -1180,6 +1197,9 @@ static JNINativeMethod g_methods[] = {
 
     { "native_setLogLevel",     "(I)V",                     (void *) IjkMediaPlayer_native_setLogLevel },
     { "_setFrameAtTime",        "(Ljava/lang/String;JJII)V", (void *) IjkMediaPlayer_setFrameAtTime },
+
+    /**zgm add**/
+    {"_setAudioStreamType",     "(I)V",                    (void *) ijkMediaPlayer_setAudioStreamType},
 };
 
 JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)

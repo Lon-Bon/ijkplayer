@@ -344,7 +344,7 @@ public class IjkVideoView extends FrameLayout implements MediaController.MediaPl
                 mMediaPlayer.setDataSource(mUri.toString());
             }
             bindSurfaceHolder(mMediaPlayer, mSurfaceHolder);
-            mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+            mMediaPlayer.setAudioStreamType(AudioManager.STREAM_ALARM);
             mMediaPlayer.setScreenOnWhilePlaying(true);
             mPrepareStartTime = System.currentTimeMillis();
             mMediaPlayer.prepareAsync();
