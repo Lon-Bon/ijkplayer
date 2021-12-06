@@ -36,5 +36,5 @@ gradle.startParameter.taskNames.each { task ->
     if (task.startsWith(':'))
         subProjectName = task.split(":")[1]
     if (subProjectName.equals(project.name))
-        apply from: new File(rootProject.projectDir, "tools/gradle-on-demand.gradle");
+        apply from: new File(rootProject.projectDir, "tools/gradle-jitpack.gradle")
 }

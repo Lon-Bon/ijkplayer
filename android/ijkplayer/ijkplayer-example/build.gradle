@@ -75,3 +75,5 @@ dependencies {
     // x86Compile project(':player-x86')
     // x86_64Compile project(':player-x86_64')
 }
+
+apply from: new File(rootProject.projectDir, "tools/gradle-jitpack.gradle")
