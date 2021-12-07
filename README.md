@@ -1,3 +1,5 @@
+本项目是从ijkplayer项目fork过来的，建立了k0.8.8分支，基于这个官方k0.8.8修改源代码进行迭代维护，适应公司需求，以下为官方的readme，Android使用请参考：
+https://github.com/Lon-Bon/ijkplayer-android
 # ijkplayer
 
  Platform | Build Status
